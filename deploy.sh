@@ -16,16 +16,24 @@ mv start_files/photo/ telebot.postgres/
 mv start_files/venv/ telebot.postgres/
 cd telebot.postgres
 source venv/bin/activate
-mv ../deploy_bot/bot.conf /etc/supervisor/conf.d/
-mv -f ../deploy_bot/supervisord.conf /etc/supervisor/
+mv ~/deploy_bot/bot.conf /etc/supervisor/conf.d/
+mv -f ~/deploy_bot/supervisord.conf /etc/supervisor/
 sudo -u postgres psql --command "CREATE USER shopbot WITH CREATEDB PASSWORD 'shopmebot';"
 sudo -u postgres psql --command "ALTER ROLE shopbot SUPERUSER;"
 sudo -u postgres psql --command "CREATE DATABASE shop;"
 sudo -u postgres psql -d shop < ../start_files/shop.postgres2.sql;
 sudo -u postgres psql --command "GRANT ALL PRIVILEGES ON DATABASE shop TO shopbot;"
-sudo service supervisor reread
-sudo service supervisor update
 echo "http://37.140.198.172:9001/    -   -    управление ботом  "
 cd ..
 rm -r start_files
 rm -r deploy_bot
+cd ..
+cd bot/
+cd telebot.postgres/
+source venv/bin/activate
+sudo apt install pip
+pip install telebot
+pip install psycopg2-binary
+pip install PyTelegramBotAPI
+sudo service supervisor reread
+sudo service supervisor update
