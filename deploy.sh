@@ -26,7 +26,6 @@ sudo -u postgres psql --command "GRANT ALL PRIVILEGES ON DATABASE shop TO shopbo
 echo "http://37.140.198.172:9001/    -   -    управление ботом  "
 cd ..
 rm -r start_files
-rm -r deploy_bot
 cd ..
 cd bot/
 cd telebot.postgres/
