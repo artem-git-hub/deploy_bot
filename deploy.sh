@@ -23,7 +23,7 @@ sudo -u postgres psql --command "CREATE DATABASE shop;"
 sudo -u postgres psql -d shop < ../start_files/shop.postgres2.sql;
 sudo -u postgres psql --command "GRANT ALL PRIVILEGES ON DATABASE shop TO shopbot;"
 cd ..
-rm -r start_files
+rm -r ~/bot/start_files
 cd ..
 cd bot/
 cd telebot.postgres/
@@ -32,8 +32,6 @@ sudo apt install pip
 pip install telebot
 pip install psycopg2-binary
 pip install PyTelegramBotAPI
-sudo service supervisor reread
-sudo service supervisor update
 sudo supervisorctl reread
 sudo supervisorctl update
 sudo systemctl stop supervisor
