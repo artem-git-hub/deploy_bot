@@ -32,8 +32,6 @@ sudo apt install pip
 pip install telebot
 pip install psycopg2-binary
 pip install PyTelegramBotAPI
-sudo service supervisor reread
-sudo service supervisor update
 sudo supervisorctl reread
 sudo supervisorctl update
 sudo systemctl stop supervisor
