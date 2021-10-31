@@ -11,10 +11,10 @@ echo "----------Postgres is installed!----------"
 sudo apt-get install supervisor
 echo "----------Supervisor is installed!----------"
 git clone https://github.com/artem-git-hub/start_files
-git clone https://github.com/artem-git-hub/telebot.postgres
-mv start_files/photo/ telebot.postgres/
-mv start_files/venv/ telebot.postgres/
-source ~/telebot.postgres/venv/bin/activate
+git clone https://github.com/artem-git-hub/csb_retail_store
+mv start_files/photo/ csb_retail_store/
+mv start_files/venv/ csb_retail_store/
+source ~/csb_retail_store/venv/bin/activate
 mv -f ~/deploy_bot/bot.conf /etc/supervisor/conf.d/
 mv -f ~/deploy_bot/supervisord.conf /etc/supervisor/
 sudo -u postgres psql --command "CREATE USER shopbot WITH CREATEDB PASSWORD 'shopmebot';"
@@ -26,7 +26,7 @@ cd ..
 rm -r ~/bot/start_files
 cd ..
 cd bot/
-cd telebot.postgres/
+cd csb_retail_store/
 source venv/bin/activate
 sudo apt install pip
 pip install telebot
